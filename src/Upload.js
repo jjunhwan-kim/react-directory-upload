@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, { useState } from 'react';
 import { Row, Col, Button, Form, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [upload, setUpload] = useState(false);
-
+  const sessionId = 456;
   const handleFile = e => {
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
@@ -55,6 +56,13 @@ const Upload = () => {
               <Button onClick={uploadFile}>업로드</Button>
             </Form.Group>
           </Form>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Link to={`/projects?sessionId=${sessionId}`}>
+            <Button>Project</Button>
+          </Link>
         </Col>
       </Row>
     </Container>
